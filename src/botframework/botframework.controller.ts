@@ -1,24 +1,42 @@
-import { Controller, Inject, Post, Req, Res } from '@nestjs/common';
-import { ActivityHandler, BotFrameworkAdapter, TurnContext } from 'botbuilder';
+import { Body, Controller, Logger, Post, Req, Res } from '@nestjs/common';
+import { TurnContext } from 'botbuilder';
 
-import { MAIN_ACTIVITY_HANDLER } from '.';
+import { DialogManagerService } from 'src/bot';
+import { BotFrameworkAdapterService } from './adapter.service';
 
 @Controller('api')
 export class BotFrameworkController {
-  private readonly botFrameworkAdapter: BotFrameworkAdapter;
+  private logger = new Logger(BotFrameworkController.name);
+
   constructor(
-    @Inject(MAIN_ACTIVITY_HANDLER)
-    private readonly activityHandler: ActivityHandler,
-  ) {
-    this.botFrameworkAdapter = new BotFrameworkAdapter();
-  }
+    private readonly manager: DialogManagerService,
+    private readonly adapter: BotFrameworkAdapterService,
+  ) {}
 
   @Post('messages')
-  public botFrameworkMessages(@Req() req, @Res() res) {
-    return this.botFrameworkAdapter.processActivity(
+  // public botFrameworkMessages(@Req() req, @Res() res, @Body() body) {
+  public async botFrameworkMessages(@Req() req, @Body() body) {
+    let result = {};
+    this.logger.debug(JSON.stringify(body));
+
+    const res = {
+      status: () => 0,
+      end: () => 0,
+      send: (data) => {
+        this.logger.debug(JSON.stringify(data));
+        result = data;
+      },
+    };
+
+    await this.adapter.processActivity(
       req,
       res,
-      (turnContext: TurnContext) => this.activityHandler.run(turnContext),
+      async (turnContext: TurnContext) => {
+        await this.manager.onTurn(turnContext);
+      },
     );
+
+    this.logger.debug(JSON.stringify(result));
+    return {};
   }
 }

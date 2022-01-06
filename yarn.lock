@@ -1820,7 +1820,7 @@ botbuilder-core@4.15.0:
     uuid "^8.3.2"
     zod "~1.11.17"
 
-botbuilder-dialogs-adaptive-runtime-core@4.15.0-preview:
+botbuilder-dialogs-adaptive-runtime-core@4.15.0-preview, botbuilder-dialogs-adaptive-runtime-core@^4.15.0-preview:
   version "4.15.0-preview"
   resolved "https://registry.yarnpkg.com/botbuilder-dialogs-adaptive-runtime-core/-/botbuilder-dialogs-adaptive-runtime-core-4.15.0-preview.tgz#5ef1b8c95723619a9cdb70d6cc31475672a58709"
   integrity sha512-bYPbUvEuMYU5HR4HtnssTRCWC4e+7DI7zeWPE4ODrX9MYWxWsqJTmhwt8vZxO+CH/JdHwXZKp/qnxYRza7fq9g==
@@ -1842,7 +1842,7 @@ botbuilder-dialogs-adaptive@^4.15.0-preview:
     lodash "^4.17.21"
     node-fetch "^2.6.0"
 
-botbuilder-dialogs-declarative@4.15.0-preview:
+botbuilder-dialogs-declarative@4.15.0-preview, botbuilder-dialogs-declarative@^4.15.0-preview:
   version "4.15.0-preview"
   resolved "https://registry.yarnpkg.com/botbuilder-dialogs-declarative/-/botbuilder-dialogs-declarative-4.15.0-preview.tgz#b8d03df2840894dbea1e8117053cac636cbe4906"
   integrity sha512-8hKvjfSTCUziZ87qH8EAx7skaSTs4rEP3COryOybVvC63YufB1cY5tnvdBDPh+0l0fsLM24k3UwUN4aFTTrhTw==

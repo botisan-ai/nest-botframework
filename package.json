@@ -29,6 +29,8 @@
     "botbuilder": "^4.15.0",
     "botbuilder-dialogs": "^4.15.0",
     "botbuilder-dialogs-adaptive": "^4.15.0-preview",
+    "botbuilder-dialogs-adaptive-runtime-core": "^4.15.0-preview",
+    "botbuilder-dialogs-declarative": "^4.15.0-preview",
     "botbuilder-lg": "^4.15.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
